@@ -1,14 +1,11 @@
 REPORTER = spec
 BRANCH = master
 
-test: test-unit lint
+test: test-unit
 
 test-unit:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter $(REPORTER)
-
-lint:
-	@./node_modules/.bin/gulp
 
 open-cov: test-cov
 	@open lib-cov/coverage.html
