@@ -12,6 +12,22 @@ var files = mainBowerFiles(/* options */);
 This will read your `bower.json`, iterate through your dependencies and returns an array of filesdefined in the main property of the packages `bower.json`.
 You can override the behavior if you add an `overrides` property to your own `bower.json`. See options:
 
+### Usage with gulp
+
+```javascript
+var gulp = require('gulp');
+var mainBowerFiles = require('main-bower-files');
+
+gulp.task('TASKNAME', function() {
+    return gulp.src(mainBowerFiles(/* options */))
+        .pipe(/* what you want to do with the files */)
+});
+```
+
+### Usage with grunt
+
+**_\* COMING SOON \*_**
+
 
 ## Options
 
@@ -125,7 +141,7 @@ mainBowerFiles({ paths: 'path/for/project' });
 
 Type: `boolean` Default: `false`
 
-Set this to true if you want that the plugin checks every file for existence. 
+Set this to true if you want that the plugin checks every file for existence.
 If enabled and a file does not exists, the plugin will throw an exception.
 
 ## LICENSE
