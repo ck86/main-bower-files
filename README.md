@@ -24,6 +24,23 @@ gulp.task('TASKNAME', function() {
 });
 ```
 
+#### You've got a flat folder/file structure after `.pipe(gulp.dest('my/dest/path'))`?
+
+`mainBowerFiles` returns an array of files where each file is a relative path without any globs (** or *). gulp requires globs in these paths to apply the base path. Because of this, you always have to tell gulp your bower base path (the path to the bower_components directory) explicitly.
+Here is an example:
+
+```javascript
+var gulp = require('gulp');
+var mainBowerFiles = require('main-bower-files');
+
+gulp.task('TASKNAME', function() {
+    return gulp.src(mainBowerFiles(/* options */), { base: 'path/to/bower_components' })
+        .pipe(/* what you want to do with the files */)
+});
+```
+
+Now you should get something like `my/dest/path/jquery/jquery.js` if you have jquery installed.
+
 ### Usage with grunt
 
 **_\* COMING SOON \*_**
