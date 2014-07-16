@@ -159,4 +159,15 @@ describe('main-bower-files', function () {
 
         when.should.throw();
     });
+
+    it("should not throw an exception if bowerrc has no directory property defined", function() {
+        var when = expect([]).fromConfig("/_empty.json", {
+            paths: {
+                bowerDirectory: __dirname + "/fixtures",
+                bowerrc: __dirname + "/.bowerrc_without_directory"
+            }
+        }).when;
+
+        when.should.not.throw();
+    });
 });
