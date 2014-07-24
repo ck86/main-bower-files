@@ -52,7 +52,7 @@ describe('main-bower-files', function () {
         ]).fromConfig("/_bower.json").when(done);
     });
 
-    it('should select only files of a given extension', function (done) {
+    it('should select only files that pass a given filter regular expression', function (done) {
         expect([
             "/fixtures/simple/simple.js",
             "/fixtures/overwritten/another.js",
@@ -60,7 +60,13 @@ describe('main-bower-files', function () {
             "/fixtures/hasPackageNoBower/hasPackageNoBower.js",
             "/fixtures/deepPaths/lib/deeppaths.js",
             "/fixtures/decoy/decoy.js"
-        ]).fromConfig("/_bower.json", { only: ['js'] }).when(done);
+        ]).fromConfig("/_bower.json", { filter: /\.js$/i }).when(done);
+    });
+
+    it('should select only files that pass a given filter callback', function (done) {
+        expect([
+            "/fixtures/decoy/decoy.js"
+        ]).fromConfig("/_bower.json", { filter: function (file) { return file.indexOf('decoy.js') > -1; } }).when(done);
     });
 
     it('should select the expected files with relative path', function (done) {
