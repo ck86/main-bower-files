@@ -165,6 +165,18 @@ describe('main-bower-files', function () {
         when.should.throw();
     });
 
+    it("should not throw an exception if main property is not defined and checkExistence option is false", function() {
+        var when = expect([]).fromConfig("/_not_existing_main.json").when;
+
+        when.should.not.throw();
+    });
+
+    it("should throw an exception if main property is not defined and checkExistence option is true", function() {
+        var when = expect([]).fromConfig("/_not_existing_main.json", { checkExistence: true }).when;
+
+        when.should.throw();
+    });
+
     it("should not throw an exception if there are no packages", function() {
         var when = expect([]).fromConfig("/_empty.json").when;
 
