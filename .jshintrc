@@ -5,10 +5,14 @@
     "eqnull": true,
     "expr": true,
     "globals": {
+        "__dirname": true,
+        "describe": true,
+        "it": true,
+        "process": true,
+        "console": true,
+        "require": true,
         "exports": true,
-        "module": true,
-        "window": true,
-        "document": true
+        "module": true
     },
     "immed": true,
     "noarg": true,
