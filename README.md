@@ -2,6 +2,22 @@ main-bower-files
 ================
 ![status](https://secure.travis-ci.org/ck86/main-bower-files.png?branch=master)
 
+- ## [Usage](#usage)
+    - [Usage with gulp](#usage-with-gulp)
+    - [Usage with grunt](#usage-with-grunt)
+- ## [Options](#options)
+    - ### [Overrides Options](#overrides-options)
+        - [main](#options)
+        - [ignore](#ignore)
+        - [dependencies](#dependencies)
+    - ### [Common Options](#common-options)
+        - [debugging](#debugging)
+        - [main](#main-1)
+        - [env](#env)
+        - [paths](#paths)
+        - [checkExistence](#checkexistence)
+        - [includeDev](#includedev)
+
 ## Usage
 
 ```javascript
@@ -68,9 +84,8 @@ These options can be set directly in your `bower.json` file, e.g.:
 
 #### main
 
-Type: `String` or `Array` or `Object`
-
-You can specify which files should be selected. You can `gulp-bower-files` select files based on the `process.env.NODE_ENV` if you provide an `Object` with `keys` as the environment, e.g.:
+Type: `String` or `Array` or `Object`  
+You can specify which files should be selected. You can `main-bower-files` select files based on the `process.env.NODE_ENV` if you provide an `Object` with `keys` as the environment, e.g.:
 
 ```json
 {
@@ -85,16 +100,26 @@ You can specify which files should be selected. You can `gulp-bower-files` selec
 }
 ```
 
+You can also use glob pattern to select files, e.g.:
+
+```json
+{
+    "overrides": {
+        "BOWER-PACKAGE": {
+            "main": "**/*.js"
+        }
+    }
+}
+```
+
 #### ignore
 
-Type: `Boolean` Default: `false`
-
+Type: `Boolean` Default: `false`  
 Set to `true` if you want to ignore this package.
 
 #### dependencies
 
-Type: `Object`
-
+Type: `Object`  
 You can override the dependencies of a package. Set to `null` to ignore the dependencies.
 
 ### Common Options
@@ -103,29 +128,24 @@ These options can be passed to this plugin, e.g: `mainBowerFiles(/* options*/)`
 
 #### debugging
 
-Type: `boolean` Default: `false`
-
+Type: `boolean` Default: `false`  
 Set to `true` to enable debugging output.
 
 #### main
 
-Type: `String` or `Array` or `Object` Default: `null`
-
+Type: `String` or `Array` or `Object` Default: `null`  
 You can specify for all packages a default main property which will be used if the package does not provide a main property.
 
 #### env
 
-Type: `String` Default: `process.env.NODE_ENV`
-
+Type: `String` Default: `process.env.NODE_ENV`  
 If `process.env.NODE_ENV` is not set you can use this option.
 
 #### paths
 
-Type: `Object` or `String`
-
+Type: `Object` or `String`  
 You can specify the paths where the following bower specific files are located:
-`bower_components`, `.bowerrc` and `bower.json`
-
+`bower_components`, `.bowerrc` and `bower.json`  
 For example:
 
 ```javascript
@@ -139,8 +159,7 @@ mainBowerFiles({
 .pipe(gulp.dest('client/src/lib'));
 ```
 
-If a `String` is supplied instead, it will become the basepath for default paths.
-
+If a `String` is supplied instead, it will become the basepath for default paths.  
 For example:
 
 ```javascript
@@ -156,10 +175,14 @@ mainBowerFiles({ paths: 'path/for/project' });
 
 #### checkExistence
 
-Type: `boolean` Default: `false`
-
+Type: `boolean` Default: `false`  
 Set this to true if you want that the plugin checks every file for existence.
 If enabled and a file does not exists, the plugin will throw an exception.
+
+#### includeDev
+
+Type: `boolean` Default: `false`  
+Set this to true if you want to include your dev dependencies.
 
 ## LICENSE
 
