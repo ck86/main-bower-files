@@ -7,7 +7,7 @@ main-bower-files
     - [Usage with grunt](#usage-with-grunt)
 - [Options](#options)
     - [Overrides Options](#overrides-options)
-        - [main](#options)
+        - [main](#main)
         - [ignore](#ignore)
         - [dependencies](#dependencies)
     - [Common Options](#common-options)
