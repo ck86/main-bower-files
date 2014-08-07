@@ -17,6 +17,7 @@ main-bower-files
         - [paths](#paths)
         - [checkExistence](#checkexistence)
         - [includeDev](#includedev)
+        - [filter](#filter)
 
 ## Usage
 
@@ -183,6 +184,10 @@ If enabled and a file does not exists, the plugin will throw an exception.
 
 Type: `boolean` Default: `false`  
 Set this to true if you want to include your dev dependencies.
+
+### filter
+Type: `RegExp` or `function` Default: `null`  
+You can filter the list of files by a regular expression or a callback function (the first and only argument is the file path).
 
 ## LICENSE
 
