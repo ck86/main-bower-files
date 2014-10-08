@@ -182,8 +182,10 @@ If enabled and a file does not exists, the plugin will throw an exception.
 
 #### includeDev
 
-Type: `boolean` Default: `false`  
-Set this to true if you want to include your dev dependencies.
+Type: `mixed` Default: `false`  
+You can include your devDependencies in two ways:
+* Set this option to `inclusive` or true to add the devDependencies to your dependencies
+* or use `exclusive` to exclude your dependencies
 
 ### filter
 Type: `RegExp` or `function` Default: `null`  

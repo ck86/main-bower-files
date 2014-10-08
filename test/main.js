@@ -26,7 +26,7 @@ describe('main-bower-files', function() {
 
             var srcFiles = mainBowerFiles(options);
 
-            expectedFiles.should.be.eql(srcFiles);
+            srcFiles.should.be.eql(expectedFiles);
 
             if (done) {
                 done();
@@ -126,6 +126,12 @@ describe('main-bower-files', function() {
             '/fixtures/simple/simple.js',
             '/fixtures/includeDev/includeDev.js'
         ]).fromConfig('/_includedev_bower.json', { includeDev: true }).when(done);
+    });
+
+    it('should get only devDependencies', function(done) {
+        expect([
+            '/fixtures/includeDev/includeDev.js'
+        ]).fromConfig('/_includedev_bower.json', { includeDev: 'exclusive' }).when(done);
     });
 
     it('should get devDependencies and ignore missing dependencies', function(done) {
