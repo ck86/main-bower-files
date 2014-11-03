@@ -17,6 +17,7 @@ main-bower-files
         - [paths](#paths)
         - [checkExistence](#checkexistence)
         - [includeDev](#includedev)
+        - [includeDev](#includeself)
         - [filter](#filter)
 
 ## Usage
@@ -186,6 +187,11 @@ Type: `mixed` Default: `false`
 You can include your devDependencies in two ways:
 * Set this option to `inclusive` or true to add the devDependencies to your dependencies
 * or use `exclusive` to exclude your dependencies
+
+#### includeSelf
+
+Type: `boolean` Default: `false`  
+Set this to true to add the main files to your dependencies
 
 ### filter
 Type: `RegExp` or `function` Default: `null`  
