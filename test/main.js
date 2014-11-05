@@ -140,6 +140,12 @@ describe('main-bower-files', function() {
         ]).fromConfig('/_includedev_devdepsonly_bower.json', { includeDev: true }).when(done);
     });
 
+    it('should get main file', function(done) {
+        expect([
+            'main.js'
+        ]).fromConfig('/_includeSelf_bower.json', { includeSelf: true }).when(done);
+    });
+
     it('should not load any deeper dependencies', function(done) {
         expect([
             '/fixtures/recursive/recursive.js'
