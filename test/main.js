@@ -230,4 +230,10 @@ describe('main-bower-files', function() {
 
         when.should.not.throw();
     });
+
+    it('should select the expected files with comments in the bower.json', function(done) {
+        expect([
+            '/fixtures/overwritten/another.js'
+        ]).fromConfig('/_bower_with_comments.json').when(done);
+    });
 });
