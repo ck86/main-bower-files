@@ -67,6 +67,17 @@ describe('main-bower-files', function() {
         ]).fromConfig('/_bower.json', { filter: /\.js$/i }).when(done);
     });
 
+    it('should select only files that pass a given glob filter', function(done) {
+        expect([
+            '/fixtures/simple/simple.js',
+            '/fixtures/overwritten/another.js',
+            '/fixtures/multi/multi.js',
+            '/fixtures/hasPackageNoBower/hasPackageNoBower.js',
+            '/fixtures/deepPaths/lib/deeppaths.js',
+            '/fixtures/decoy/decoy.js'
+        ]).fromConfig('/_bower.json', { filter: '**/*.js' }).when(done);
+    });
+
     it('should select only files that pass a given filter callback', function(done) {
         expect([
             '/fixtures/decoy/decoy.js'
