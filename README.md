@@ -194,8 +194,8 @@ Type: `boolean` Default: `false`
 Set this to true to add the main files to your dependencies
 
 ### filter
-Type: `RegExp` or `function` Default: `null`  
-You can filter the list of files by a regular expression or a callback function (the first and only argument is the file path).
+Type: `RegExp` or `function` or `glob` Default: `null`  
+You can filter the list of files by a regular expression, glob or callback function (the first and only argument is the file path).
 
 ## LICENSE
 
