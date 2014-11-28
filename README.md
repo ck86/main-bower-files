@@ -17,7 +17,7 @@ main-bower-files
         - [paths](#paths)
         - [checkExistence](#checkexistence)
         - [includeDev](#includedev)
-        - [includeDev](#includeself)
+        - [includeSelf](#includeself)
         - [filter](#filter)
 
 ## Usage
