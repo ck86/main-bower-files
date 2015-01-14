@@ -1,6 +1,6 @@
 {
   "name": "main-bower-files",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "Get main files from your installed bower packages.",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   "dependencies": {
     "colors": "^0.6.2",
     "glob": "^4.0.3",
+    "globule": "^0.2.0",
     "minimatch": "^1.0.0",
     "strip-json-comments": "^1.0.2"
   }

@@ -24,11 +24,13 @@ main-bower-files
 
 ```javascript
 var mainBowerFiles = require('main-bower-files');
-var files = mainBowerFiles(/* options */);
+var files = mainBowerFiles([[filter, ]options]);
 ```
 
+If first argument is type of `String` or `Array` it will be used as a filter, otherwise it will be used as options.
+
 This will read your `bower.json`, iterate through your dependencies and returns an array of filesdefined in the main property of the packages `bower.json`.
-You can override the behavior if you add an `overrides` property to your own `bower.json`. See options:
+You can override the behavior if you add an `overrides` property to your own `bower.json`.
 
 ### Usage with gulp
 
@@ -37,7 +39,7 @@ var gulp = require('gulp');
 var mainBowerFiles = require('main-bower-files');
 
 gulp.task('TASKNAME', function() {
-    return gulp.src(mainBowerFiles(/* options */))
+    return gulp.src(mainBowerFiles())
         .pipe(/* what you want to do with the files */)
 });
 ```

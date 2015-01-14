@@ -12,6 +12,9 @@ describe('main-bower-files', function() {
         function run(path, options, done) {
             options = options || {};
 
+            var srcFiles,
+                filter = options.filter || undefined;
+
             if (!options.paths) {
                 options.paths = {};
             }
@@ -24,7 +27,12 @@ describe('main-bower-files', function() {
                 options.paths.bowerrc = __dirname + '/.bowerrc';
             }
 
-            var srcFiles = mainBowerFiles(options);
+            if (typeof filter === 'string' || Array.isArray(filter)) {
+                delete options.filter;
+                srcFiles = mainBowerFiles(filter, options);
+            } else {
+                srcFiles = mainBowerFiles(options);
+            }
 
             srcFiles.should.be.eql(expectedFiles);
 
