@@ -62,9 +62,42 @@ gulp.task('TASKNAME', function() {
 Now you should get something like `my/dest/path/jquery/jquery.js` if you have jquery installed.
 
 ### Usage with grunt
+Install this plugin with the following command:
+```bash
+npm install --save-dev main-bower-files
+```
 
-**_\* COMING SOON \*_**
+Once that's done, add this line to your project's Gruntfile:
+```javascript
+grunt.loadNpmTasks('main-bower-files');
+```
 
+In your project's Gruntfile, add a section named `bower` to the data object passed into `grunt.initConfig()`, like so:
+```javascript
+grunt.initConfig({
+    bower: {
+        dev: {
+            base: 'bower_components', /* the path to the bower_components directory */
+            dest: 'web/bower_components',
+            options: {
+                checkExistence: true,
+                debugging: true,
+                paths: {
+                    bowerDirectory: 'bower_components',
+                    bowerrc: '.bowerrc',
+                    bowerJson: 'bower.json'
+                }
+            }
+        },
+        flat: { /* flat folder/file structure */
+            dest: 'public/vendor',
+            options: {
+                debugging: true
+            }
+        }
+    }
+});
+````
 
 ## Options
 
