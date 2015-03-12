@@ -1,6 +1,6 @@
 {
   "name": "main-bower-files",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Get main files from your installed bower packages.",
   "main": "index.js",
   "scripts": {
@@ -38,8 +38,5 @@
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
-  },
-  "files": [
-    "tasks"
-  ]
+  }
 }
