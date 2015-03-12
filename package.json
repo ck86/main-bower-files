@@ -13,7 +13,8 @@
   "keywords": [
     "bower",
     "gulp",
-    "gulpfriendly"
+    "gulpfriendly",
+    "gruntplugin"
   ],
   "author": "Christopher Knötschke",
   "license": "MIT",
@@ -21,15 +22,24 @@
     "url": "https://github.com/ck86/main-bower-files/issues"
   },
   "homepage": "https://github.com/ck86/main-bower-files",
-  "devDependencies": {
-    "should": "^4.0.4",
-    "mocha": "^2.0.1"
-  },
   "dependencies": {
     "colors": "^0.6.2",
     "glob": "^4.0.3",
     "globule": "^0.2.0",
     "minimatch": "^1.0.0",
-    "strip-json-comments": "^1.0.2"
-  }
+    "strip-json-comments": "^1.0.2",
+    "vinyl-fs": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "mocha": "^2.0.1",
+    "should": "^4.0.4"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  },
+  "files": [
+    "tasks"
+  ]
 }
