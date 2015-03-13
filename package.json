@@ -1,6 +1,6 @@
 {
   "name": "main-bower-files",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Get main files from your installed bower packages.",
   "main": "index.js",
   "scripts": {
@@ -35,8 +35,5 @@
     "grunt-cli": "^0.1.13",
     "mocha": "^2.0.1",
     "should": "^4.0.4"
-  },
-  "peerDependencies": {
-    "grunt": ">=0.4.0"
   }
 }
