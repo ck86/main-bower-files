@@ -105,7 +105,7 @@ grunt.initConfig({
 
 These options can be set directly in your `bower.json` file, e.g.:
 
-```json
+```js
 {
     "name": "your-package-name",
     "dependencies": {
