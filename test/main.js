@@ -29,9 +29,9 @@ describe('main-bower-files', function() {
 
             if (typeof filter === 'string' || Array.isArray(filter)) {
                 delete options.filter;
-                srcFiles = mainBowerFiles(filter, options);
+                srcFiles = mainBowerFiles(filter, options, options.callback || undefined);
             } else {
-                srcFiles = mainBowerFiles(options);
+                srcFiles = mainBowerFiles(options, options.callback || undefined);
             }
 
             srcFiles.should.be.eql(expectedFiles);
@@ -222,10 +222,26 @@ describe('main-bower-files', function() {
         when.should.not.throw();
     });
 
+    it('should not pass an error to callback if there are no packages', function() {
+        expect([]).fromConfig('/_empty.json', {
+            callback: function (err) {
+                (err === null).should.be.true;
+            }
+        }).when();
+    });
+
     it('should throw an exception if bower.json does not exists', function() {
         var when = expect([]).fromConfig('/_unknown.json').when;
 
         when.should.throw();
+    });
+
+    it('should pass an error to callback if bower.json does not exists', function() {
+        expect([]).fromConfig('/_unknown.json', {
+            callback: function (err) {
+                (err !== null).should.be.true;
+            }
+        }).when();
     });
 
     it('should not throw an exception if bowerrc has no directory property defined', function() {
@@ -237,6 +253,18 @@ describe('main-bower-files', function() {
         }).when;
 
         when.should.not.throw();
+    });
+
+    it('should not pass an error to callback if bowerrc has no directory property defined', function() {
+        expect([]).fromConfig('/_empty.json', {
+            paths: {
+                bowerDirectory: __dirname + '/fixtures',
+                bowerrc: __dirname + '/.bowerrc_without_directory'
+            },
+            callback: function (err) {
+                (err === null).should.be.true;
+            }
+        }).when();
     });
 
     it('should select the expected files with comments in the bower.json', function(done) {
