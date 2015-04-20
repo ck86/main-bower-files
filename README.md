@@ -24,7 +24,7 @@ main-bower-files
 
 ```javascript
 var mainBowerFiles = require('main-bower-files');
-var files = mainBowerFiles([[filter, ]options]);
+var files = mainBowerFiles([[filter, ]options][, callback]);
 ```
 
 If first argument is type of `String` or `Array` it will be used as a filter, otherwise it will be used as options.
