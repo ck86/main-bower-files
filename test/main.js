@@ -64,6 +64,23 @@ describe('main-bower-files', function() {
         ]).fromConfig('/_bower.json').when(done);
     });
 
+    it('should ignore via overrides option', function(done) {
+        expect([
+            '/fixtures/overwritten/another.js',
+            '/fixtures/multi/multi.js',
+            '/fixtures/multi/multi.css',
+            '/fixtures/hasPackageNoBower/hasPackageNoBower.js',
+            '/fixtures/deepPaths/lib/deeppaths.js',
+            '/fixtures/decoy/decoy.js'
+        ]).fromConfig('/_bower.json', {
+            overrides: {
+                simple: {
+                    ignore: true
+                }
+            }
+        }).when(done);
+    });
+
     it('should select only files that pass a given filter regular expression', function(done) {
         expect([
             '/fixtures/simple/simple.js',

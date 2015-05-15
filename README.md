@@ -19,6 +19,7 @@ main-bower-files
         - [includeDev](#includedev)
         - [includeSelf](#includeself)
         - [filter](#filter)
+        - [overrides](#overrides)
 
 ## Usage
 
@@ -231,6 +232,11 @@ Set this to true to add the main files to your dependencies
 ### filter
 Type: `RegExp` or `function` or `glob` Default: `null`  
 You can filter the list of files by a regular expression, glob or callback function (the first and only argument is the file path).
+
+### overrides
+
+Type: `object` Default: `{}`  
+Set default overrides option which can be overriden in the `overrides` section of the `bower.json`
 
 ## LICENSE
 
