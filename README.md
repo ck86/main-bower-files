@@ -131,7 +131,7 @@ You can specify which files should be selected. You can `main-bower-files` selec
         "BOWER-PACKAGE": {
             "main": {
                 "development": "file.js",
-                "production": "file.min.js",
+                "production": "file.min.js"
             }
         }
     }
