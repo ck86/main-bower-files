@@ -1,6 +1,6 @@
 {
   "name": "main-bower-files",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "Get main files from your installed bower packages.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/ck86/main-bower-files",
   "dependencies": {
-    "colors": "^0.6.2",
+    "chalk": "^1.0.0",
     "extend": "^2.0.1",
     "globby": "^2.0.0",
     "multimatch": "^2.0.0",
@@ -35,6 +35,6 @@
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "mocha": "^2.0.1",
-    "should": "^4.0.4"
+    "should": "^7.0.1"
   }
 }
