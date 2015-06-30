@@ -47,7 +47,7 @@ gulp.task('TASKNAME', function() {
 
 #### You've got a flat folder/file structure after `.pipe(gulp.dest('my/dest/path'))`?
 
-`mainBowerFiles` returns an array of files where each file is a relative path without any globs (** or *). gulp requires globs in these paths to apply the base path. Because of this, you always have to tell gulp your bower base path (the path to the bower_components directory) explicitly.
+`mainBowerFiles` returns an array of files where each file is a absolute path without any globs (** or *). gulp requires globs in these paths to apply the base path. Because of this, you always have to tell gulp your bower base path (the path to the bower_components directory) explicitly.
 Here is an example:
 
 ```javascript
@@ -262,3 +262,4 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
