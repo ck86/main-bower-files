@@ -1,6 +1,6 @@
 {
   "name": "main-bower-files",
-  "version": "2.8.2",
+  "version": "2.9.0",
   "description": "Get main files from your installed bower packages.",
   "main": "index.js",
   "scripts": {
