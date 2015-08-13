@@ -27,7 +27,7 @@ describe('main-bower-files', function() {
                 options.paths.bowerrc = __dirname + '/.bowerrc';
             }
 
-            if (typeof filter === 'string' || Array.isArray(filter)) {
+            if (typeof filter === 'string' || Array.isArray(filter) || filter instanceof RegExp) {
                 delete options.filter;
                 srcFiles = mainBowerFiles(filter, options, options.callback || undefined);
             } else {
