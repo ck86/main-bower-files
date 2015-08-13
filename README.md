@@ -31,6 +31,7 @@ var files = mainBowerFiles([[filter, ]options][, callback]);
 If first argument is type of `String`, `Array` or `RegExp` it will be used as a filter, otherwise it will be used as options.
 
 This will read your `bower.json`, iterate through your dependencies and returns an array of filesdefined in the main property of the packages `bower.json`.
+
 You can override the behavior if you add an `overrides` property to your own `bower.json`.
 
 ### Usage with gulp
@@ -48,6 +49,7 @@ gulp.task('TASKNAME', function() {
 #### You've got a flat folder/file structure after `.pipe(gulp.dest('my/dest/path'))`?
 
 `mainBowerFiles` returns an array of files where each file is a absolute path without any globs (** or *). gulp requires globs in these paths to apply the base path. Because of this, you always have to tell gulp your bower base path (the path to the bower_components directory) explicitly.
+
 Here is an example:
 
 ```javascript
@@ -63,17 +65,21 @@ gulp.task('TASKNAME', function() {
 Now you should get something like `my/dest/path/jquery/jquery.js` if you have jquery installed.
 
 ### Usage with grunt
+
 Install this plugin with the following command:
+
 ```bash
 npm install --save-dev main-bower-files
 ```
 
 Once that's done, add this line to your project's Gruntfile:
+
 ```javascript
 grunt.loadNpmTasks('main-bower-files');
 ```
 
 In your project's Gruntfile, add a section named `bower` to the data object passed into `grunt.initConfig()`, like so:
+
 ```javascript
 grunt.initConfig({
     bower: {
@@ -123,6 +129,7 @@ These options can be set directly in your `bower.json` file, e.g.:
 #### main
 
 Type: `String` or `Array` or `Object`
+
 You can specify which files should be selected. You can `main-bower-files` select files based on the `process.env.NODE_ENV` if you provide an `Object` with `keys` as the environment, e.g.:
 
 ```json
@@ -153,11 +160,13 @@ You can also use glob pattern to select files, e.g.:
 #### ignore
 
 Type: `Boolean` Default: `false`
+
 Set to `true` if you want to ignore this package.
 
 #### dependencies
 
 Type: `Object`
+
 You can override the dependencies of a package. Set to `null` to ignore the dependencies.
 
 ### Common Options
@@ -167,23 +176,29 @@ These options can be passed to this plugin, e.g: `mainBowerFiles(/* options*/)`
 #### debugging
 
 Type: `boolean` Default: `false`
+
 Set to `true` to enable debugging output.
 
 #### main
 
 Type: `String` or `Array` or `Object` Default: `null`
+
 You can specify for all packages a default main property which will be used if the package does not provide a main property.
 
 #### env
 
 Type: `String` Default: `process.env.NODE_ENV`
+
 If `process.env.NODE_ENV` is not set you can use this option.
 
 #### paths
 
 Type: `Object` or `String`
+
 You can specify the paths where the following bower specific files are located:
+
 `bower_components`, `.bowerrc` and `bower.json`
+
 For example:
 
 ```javascript
@@ -198,6 +213,7 @@ mainBowerFiles({
 ```
 
 If a `String` is supplied instead, it will become the basepath for default paths.
+
 For example:
 
 ```javascript
@@ -214,28 +230,36 @@ mainBowerFiles({ paths: 'path/for/project' });
 #### checkExistence
 
 Type: `boolean` Default: `false`
+
 Set this to true if you want that the plugin checks every file for existence.
+
 If enabled and a file does not exists, the plugin will throw an exception.
 
 #### includeDev
 
 Type: `mixed` Default: `false`
+
 You can include your devDependencies in two ways:
+
 * Set this option to `inclusive` or true to add the devDependencies to your dependencies
 * or use `exclusive` to exclude your dependencies
 
 #### includeSelf
 
 Type: `boolean` Default: `false`
+
 Set this to true to add the main files to your dependencies
 
 ### filter
+
 Type: `RegExp` or `function` or `glob` Default: `null`
+
 You can filter the list of files by a regular expression, glob or callback function (the first and only argument is the file path).
 
 ### overrides
 
 Type: `object` Default: `{}`
+
 Set default overrides option which can be overriden in the `overrides` section of the `bower.json`
 
 ## LICENSE
