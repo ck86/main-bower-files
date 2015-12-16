@@ -262,6 +262,33 @@ Type: `object` Default: `{}`
 
 Set default overrides option which can be overridden in the `overrides` section of the `bower.json`
 
+### group
+
+Type: `String` Default: `null`
+
+You can specify a group of dependencies you want to read from bower.json
+
+For example:
+
+```json
+{
+    "dependencies": {
+        "BOWER-PACKAGE-1": "*",
+        "BOWER-PACKAGE-2": "*",
+        "BOWER-PACKAGE-3": "*",
+        "BOWER-PACKAGE-4": "*"
+    },
+    "group": {
+        "home": [ "BOWER-PACKAGE-1" ],
+        "admin": [ "BOWER-PACKAGE-1", "BOWER-PACKAGE-2", "BOWER-PACKAGE-3" ]
+    }
+}
+```
+
+```javascript
+mainBowerFiles({ paths: 'path/for/project', group: 'home' });
+```
+
 ## LICENSE
 
 (MIT License)
@@ -286,4 +313,3 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
