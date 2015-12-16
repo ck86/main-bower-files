@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "simple": "*",
+        "overwritten": "*",
+        "multi": "*",
+        "ignore": "*",
+        "hasPackageNoBower": "*",
+        "deepPaths":"*",
+        "decoy": "*"
+    },
+    "group": {
+        "group1": [ "simple", "multi" ]
+    }
+}

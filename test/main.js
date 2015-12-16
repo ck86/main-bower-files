@@ -289,4 +289,25 @@ describe('main-bower-files', function() {
             '/fixtures/overwritten/another.js'
         ]).fromConfig('/_bower_with_comments.json').when(done);
     });
+
+    it('should select all files if no group options pass to function', function(done) {
+        expect([
+            '/fixtures/simple/simple.js',
+            '/fixtures/overwritten/overwritten.js',
+            '/fixtures/multi/multi.js',
+            '/fixtures/multi/multi.css',
+            '/fixtures/hasPackageNoBower/hasPackageNoBower.js',
+            '/fixtures/deepPaths/lib/deeppaths.js',
+            '/fixtures/decoy/decoy.js'
+        ]).fromConfig('/_bower_with_group.json').when(done);
+    });
+    
+    it('should select the expected files from group propery in bower.json', function(done) {
+        expect([
+            '/fixtures/simple/simple.js',
+            '/fixtures/multi/multi.js',
+            '/fixtures/multi/multi.css'
+        ]).fromConfig('/_bower_with_group.json', { group: 'group1' }).when(done);
+    });
+
 });
