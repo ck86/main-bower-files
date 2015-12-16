@@ -3,8 +3,6 @@ var mainBowerFiles = require('../'),
 
 require('should');
 
-var assert = should;
-
 describe('main-bower-files', function() {
     function expect(filenames) {
         var expectedFiles = [].concat(filenames).map(function(filename) {
