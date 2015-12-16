@@ -9,6 +9,7 @@
         "decoy": "*"
     },
     "group": {
-        "group1": [ "simple", "multi" ]
+        "group1": [ "simple", "multi" ],
+        "containDepsError": [ "simple", "nonExistingModule" ]
     }
 }

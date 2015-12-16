@@ -3,6 +3,8 @@ var mainBowerFiles = require('../'),
 
 require('should');
 
+var assert = should;
+
 describe('main-bower-files', function() {
     function expect(filenames) {
         var expectedFiles = [].concat(filenames).map(function(filename) {
@@ -301,7 +303,7 @@ describe('main-bower-files', function() {
             '/fixtures/decoy/decoy.js'
         ]).fromConfig('/_bower_with_group.json').when(done);
     });
-    
+
     it('should select the expected files from group propery in bower.json', function(done) {
         expect([
             '/fixtures/simple/simple.js',
@@ -310,4 +312,15 @@ describe('main-bower-files', function() {
         ]).fromConfig('/_bower_with_group.json', { group: 'group1' }).when(done);
     });
 
+    it('should throw an exception if group name does not exist', function() {
+        var when = expect([]).fromConfig('/_bower_with_group.json', { group: 'nonExistingGroup' }).when;
+
+        when.should.throw('group "nonExistingGroup" does not exists in bower.json');
+    });
+
+    it('should ignore nonexisting packages in the group', function(done) {
+        expect([
+            '/fixtures/simple/simple.js'
+        ]).fromConfig('/_bower_with_group.json', { group: 'containDepsError' }).when(done);
+    });
 });
