@@ -321,4 +321,9 @@ describe('main-bower-files', function() {
             '/fixtures/simple/simple.js'
         ]).fromConfig('/_bower_with_group.json', { group: 'containDepsError' }).when(done);
     });
+
+    it('should not giving error wrong error message when a / path was passed',function(done){
+        expect([
+        ]).fromConfig('/_bower_with_wrong_main_path.json', { checkExistence: true }).when(done);
+    });
 });
