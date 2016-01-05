@@ -1,14 +1,7 @@
 {
-  "libs": [
-    "ecma5"
-  ],
+  "ecmaVersion": 5,
+  "libs": [],
   "loadEagerly": [
     "lib/**/*.js"
-  ],
-  "plugins": {
-    "complete_strings": {},
-    "doc_comment": {
-     "fullDocs": true
-    }
-  }
+  ]
 }
