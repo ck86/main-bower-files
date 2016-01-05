@@ -321,4 +321,12 @@ describe('main-bower-files', function() {
             '/fixtures/simple/simple.js'
         ]).fromConfig('/_bower_with_group.json', { group: 'containDepsError' }).when(done);
     });
+
+    it('should not giving error wrong error message when a / path was passed',function(done){
+      var when = expect([
+        ]).fromConfig('/_bower_with_wrong_main_path.json', { checkExistence: true }).when;
+
+        when.should.throw('absolute path in bower main is not supported');
+        done();
+    });
 });
