@@ -1,6 +1,6 @@
 {
   "name": "main-bower-files",
-  "version": "2.11.1",
+  "version": "2.11.2",
   "description": "Get main files from your installed bower packages.",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "multimatch": "^2.0.0",
     "path-exists": "^1.0.0",
     "strip-json-comments": "^1.0.2",
-    "vinyl-fs": "^1.0.0"
+    "vinyl-fs": "^2.4.3"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
