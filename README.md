@@ -289,6 +289,12 @@ For example:
 mainBowerFiles({ paths: 'path/for/project', group: 'home' });
 ```
 
+You can include all packages except for those listed in a group with the `!` operator.
+
+```javascript
+mainBowerFiles({ paths: 'path/for/project', group: '!home' });
+```
+
 ## LICENSE
 
 (MIT License)

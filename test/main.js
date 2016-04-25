@@ -302,12 +302,21 @@ describe('main-bower-files', function() {
         ]).fromConfig('/_bower_with_group.json').when(done);
     });
 
-    it('should select the expected files from group propery in bower.json', function(done) {
+    it('should select the expected files from group property in bower.json', function(done) {
         expect([
             '/fixtures/simple/simple.js',
             '/fixtures/multi/multi.js',
             '/fixtures/multi/multi.css'
         ]).fromConfig('/_bower_with_group.json', { group: 'group1' }).when(done);
+    });
+
+    it('should select all files except those listed in the group property in bower.json', function(done) {
+        expect([
+            '/fixtures/overwritten/overwritten.js',
+            '/fixtures/hasPackageNoBower/hasPackageNoBower.js',
+            '/fixtures/deepPaths/lib/deeppaths.js',
+            '/fixtures/decoy/decoy.js'
+        ]).fromConfig('/_bower_with_group.json', { group: '!group1' }).when(done);
     });
 
     it('should throw an exception if group name does not exist', function() {
