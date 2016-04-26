@@ -10,6 +10,7 @@
     },
     "group": {
         "group1": [ "simple", "multi" ],
+        "group2": [ "overwritten" ],
         "containDepsError": [ "simple", "nonExistingModule" ]
     }
 }
