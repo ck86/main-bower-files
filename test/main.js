@@ -310,6 +310,15 @@ describe('main-bower-files', function() {
         ]).fromConfig('/_bower_with_group.json', { group: 'group1' }).when(done);
     });
 
+    it('should select the expected files from group property in bower.json defined by array of groups', function(done) {
+        expect([
+            '/fixtures/simple/simple.js',
+            '/fixtures/multi/multi.js',
+            '/fixtures/multi/multi.css',
+            '/fixtures/overwritten/overwritten.js'
+        ]).fromConfig('/_bower_with_group.json', { group: ['group1', 'group2'] }).when(done);
+    });
+
     it('should select all files except those listed in the group property in bower.json', function(done) {
         expect([
             '/fixtures/overwritten/overwritten.js',

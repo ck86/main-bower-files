@@ -264,7 +264,7 @@ Set default overrides option which can be overridden in the `overrides` section 
 
 ### group
 
-Type: `String` Default: `null`
+Type: `String` or `Array` Default: `null`
 
 You can specify a group of dependencies you want to read from bower.json
 
@@ -280,6 +280,7 @@ For example:
     },
     "group": {
         "home": [ "BOWER-PACKAGE-1" ],
+        "contact": [ "BOWER-PACKAGE-4" ],
         "admin": [ "BOWER-PACKAGE-1", "BOWER-PACKAGE-2", "BOWER-PACKAGE-3" ]
     }
 }
@@ -287,6 +288,12 @@ For example:
 
 ```javascript
 mainBowerFiles({ paths: 'path/for/project', group: 'home' });
+```
+
+You can select multiple groups with an array.
+
+```javascript
+mainBowerFiles({ paths: 'path/for/project', group: ['home', 'contact'] });
 ```
 
 You can include all packages except for those listed in a group with the `!` operator.
